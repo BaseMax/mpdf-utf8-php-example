@@ -2,34 +2,52 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Mpdf\Mpdf;
+use Mpdf\Config\ConfigVariables;
+use Mpdf\Config\FontVariables;
 
-$html = '
+$html = <<<HTML
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <title>صورتحساب</title>
     <style>
         body {
             font-family: "Vazirmatn-Medium", sans-serif;
             direction: rtl;
             text-align: right;
+            line-height: 1.6;
         }
         h1 {
             color: #2E86C1;
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
         }
         th, td {
             border: 1px solid #aaa;
-            padding: 8px;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tfoot td {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>صورتحساب</h1>
-    <p>تاریخ: ۱۴۰۳/۰۳/۱۳</p>
+    <h1>صورتحساب فروش</h1>
+    <p><strong>تاریخ:</strong> ۱۴۰۳/۰۳/۱۳</p>
+    <p><strong>مشتری:</strong> علی رضایی</p>
+
     <table>
         <thead>
             <tr>
@@ -53,16 +71,37 @@ $html = '
                 <td>۵۰۰٬۰۰۰ ریال</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: left;">مبلغ کل</td>
+                <td>۱٬۵۰۰٬۰۰۰ ریال</td>
+            </tr>
+        </tfoot>
     </table>
-    <h3>مبلغ کل: ۱٬۵۰۰٬۰۰۰ ریال</h3>
 </body>
 </html>
-';
+HTML;
+
+$config = (new ConfigVariables())->getDefaults();
+$fontDirs = $config['fontDir'];
+
+$fontConfig = (new FontVariables())->getDefaults();
+$fontData = $fontConfig['fontdata'];
 
 $mpdf = new Mpdf([
     'mode' => 'utf-8',
     'format' => 'A4',
-    'default_font' => 'Vazirmatn-Medium', // fonts/Vazirmatn-Medium.ttf file
+    'margin_left' => 10,
+    'margin_right' => 10,
+    'margin_top' => 10,
+    'margin_bottom' => 10,
+    'fontDir' => array_merge($fontDirs, [__DIR__ . '/fonts']),
+    'fontdata' => $fontData + [
+        'Vazirmatn-Medium' => [
+            'R' => 'Vazirmatn-Medium.ttf',
+        ],
+    ],
+    'default_font' => 'Vazirmatn-Medium',
 ]);
 
 $mpdf->WriteHTML($html);
