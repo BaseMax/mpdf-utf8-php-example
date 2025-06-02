@@ -1,0 +1,12 @@
+{
+  "name": "basemax/mpdf-utf8-php-example",
+  "description": "Simple Persian invoice PDF generator using mPDF and PHP 8.3",
+  "require": {
+    "mpdf/mpdf": "8.2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
