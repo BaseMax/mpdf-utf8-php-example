@@ -105,4 +105,5 @@ $mpdf = new Mpdf([
 ]);
 
 $mpdf->WriteHTML($html);
-$mpdf->Output('invoice.pdf', \Mpdf\Output\Destination::INLINE);
+// $mpdf->Output('invoice.pdf', \Mpdf\Output\Destination::INLINE);
+$mpdf->Output(__DIR__ . '/invoice.pdf', \Mpdf\Output\Destination::FILE);
