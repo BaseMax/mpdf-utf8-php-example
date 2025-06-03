@@ -13,7 +13,7 @@ $html = <<<HTML
     <title>صورتحساب</title>
     <style>
         body {
-            font-family: 'Tahoma';
+            font-family: 'XP Ziba';
             direction: rtl;
             text-align: right;
             line-height: 1.6;
@@ -97,17 +97,17 @@ $mpdf = new Mpdf([
     'margin_bottom' => 10,
     'fontDir' => array_merge($fontDirs, [__DIR__ . '/fonts']),
     'fontdata' => $fontData + [
-        // 'B Nazanin' => [
-        //     'R' => 'BNazanin.ttf',
-        //     'B' => 'BNaznnBd.ttf',
-        // ],
+        'XP Ziba' => [
+            'R' => 'XP Ziba.ttf',
+            'B' => 'XP Ziba Bd.ttf',
+        ],
     ],
-    // 'default_font' => 'B Nazanin',
+    'default_font' => 'XP Ziba',
     'default_direction' => 'rtl',
 ]);
 $mpdf->showImageErrors = true;
 $mpdf->debugfonts = true;
-$mpdf->autoLangToFont = true;
+// $mpdf->autoLangToFont = true;
 $mpdf->autoScriptToLang = true;
 
 $mpdf->WriteHTML($html);

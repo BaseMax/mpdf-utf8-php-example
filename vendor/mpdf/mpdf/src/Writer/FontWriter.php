@@ -52,11 +52,15 @@ class FontWriter
 						$used = $f['used'];
 						if ($used) {
 							$nChars = (ord($f['cw'][0]) << 8) + ord($f['cw'][1]);
-							if ($nChars === 0) {
-								$usage = 100;
-							} else {
-								$usage = (int) (count($f['subset']) * 100 / $nChars);
-							}
+							// TODO: by MAX BASE
+							// if ($nChars === 0) {
+							// 	$usage = (int) (count($f['subset']) * 100 / 256);
+							// 	$usage = 100;
+							// } else {
+							// 	$usage = (int) (count($f['subset']) * 100 / $nChars);
+							// }
+							$usage = (int) (count($f['subset']) * 100 / $nChars);
+							
 							$fsize = $info['length1'];
 							// Always subset the very large TTF files
 							if ($fsize > ($this->mpdf->maxTTFFilesize * 1024)) {
