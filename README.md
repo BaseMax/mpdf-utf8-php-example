@@ -9,6 +9,10 @@ A simple PHP project demonstrating how to generate right-to-left (RTL) **Persian
 - Loads and embeds **custom Persian fonts** (`Vazirmatn-Medium`)
 - Supports multiple PHP versions (see compatibility section)
 
+> Tested in PHP 8.4 - Ubuntu OS.
+
+[![](demo.jpg)](invoice.pdf)
+
 ---
 
 ## ⚠️ Challenges Covered
