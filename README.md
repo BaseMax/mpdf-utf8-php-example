@@ -1,12 +1,12 @@
 # mpdf-utf8-php-example
 
-A simple PHP project demonstrating how to generate right-to-left (RTL) **Persian invoices** as PDFs using [mPDF](https://github.com/mpdf/mpdf). This setup supports full **UTF-8 rendering**, **custom Persian fonts**, and is ready to clone, run, and customize.
+A simple PHP project demonstrating how to generate right-to-left (RTL) **Persian invoices** as PDFs using [mPDF](https://github.com/mpdf/mpdf). This setup supports full **UTF-8 rendering**, **RTL text**, and is ready to clone, run, and customize.
 
 ## ✨ Key Features
 
 - Generates **Persian-language invoices** with correct RTL layout
 - Handles **UTF-8 non-ASCII characters**
-- Loads and embeds **custom Persian fonts** (`Vazirmatn-Medium`)
+- Loads and embeds **RTL text**
 - Supports multiple PHP versions (see compatibility section)
 
 > Tested in PHP 8.4 - Ubuntu OS.
@@ -21,7 +21,7 @@ This example solves common issues when working with Persian (Farsi) PDFs in PHP:
 
 - ✅ Right-to-left text layout
 - ✅ UTF-8 character support (Arabic script, numbers)
-- ✅ Custom TTF font loading and usage in mPDF
+- TODO: Custom TTF font loading and usage in mPDF (Help needed)
 
 > ℹ️ The example uses [Vazirmatn](https://github.com/rastikerdar/vazirmatn/releases/tag/v33.003), a high-quality Persian typeface by the late **VazirMatn** – a respected contributor to the Persian design community. Best and be at peace.
 
