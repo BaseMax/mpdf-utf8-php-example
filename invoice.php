@@ -13,7 +13,7 @@ $html = <<<HTML
     <title>صورتحساب</title>
     <style>
         body {
-            font-family: "Vazirmatn-Medium", sans-serif;
+            font-family: 'Vazirmatn', sans-serif;
             direction: rtl;
             text-align: right;
             line-height: 1.6;
@@ -97,11 +97,12 @@ $mpdf = new Mpdf([
     'margin_bottom' => 10,
     'fontDir' => array_merge($fontDirs, [__DIR__ . '/fonts']),
     'fontdata' => $fontData + [
-        'Vazirmatn-Medium' => [
-            'R' => 'Vazirmatn-Medium.ttf',
+        'Vazirmatn' => [
+            'R' => 'Vazirmatn-Regular.ttf',
+            'B' => 'Vazirmatn-Bold.ttf',
         ],
     ],
-    'default_font' => 'Vazirmatn-Medium',
+    'default_font' => 'Vazirmatn',
 ]);
 
 $mpdf->WriteHTML($html);
