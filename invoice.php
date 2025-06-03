@@ -13,7 +13,7 @@ $html = <<<HTML
     <title>صورتحساب</title>
     <style>
         body {
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Tahoma';
             direction: rtl;
             text-align: right;
             line-height: 1.6;
@@ -97,15 +97,20 @@ $mpdf = new Mpdf([
     'margin_bottom' => 10,
     'fontDir' => array_merge($fontDirs, [__DIR__ . '/fonts']),
     'fontdata' => $fontData + [
-        'Vazirmatn' => [
-            'R' => 'Vazirmatn-Regular.ttf',
-            'B' => 'Vazirmatn-Bold.ttf',
-        ],
+        // 'B Nazanin' => [
+        //     'R' => 'BNazanin.ttf',
+        //     'B' => 'BNaznnBd.ttf',
+        // ],
     ],
-    'default_font' => 'Vazirmatn',
+    // 'default_font' => 'B Nazanin',
+    'default_direction' => 'rtl',
 ]);
+$mpdf->showImageErrors = true;
+$mpdf->debugfonts = true;
+$mpdf->autoLangToFont = true;
+$mpdf->autoScriptToLang = true;
 
 $mpdf->WriteHTML($html);
 // $mpdf->Output('invoice.pdf', \Mpdf\Output\Destination::INLINE);
 $mpdf->Output(__DIR__ . '/invoice.pdf', \Mpdf\Output\Destination::FILE);
-print "PDF created successfully: " . __DIR__ . '/invoice.pdf';
+print "PDF created successfully: " . __DIR__ . '/invoice.pdf' . "\n";
