@@ -16,13 +16,13 @@ $mpdf = new Mpdf([
     'format' => 'A4',
     'fontDir' => array_merge($fontDirs, [__DIR__ . '/fonts']),
     'fontdata' => $fontData + [
-        'scheherazade' => [
-            'R' => 'ScheherazadeNew-Regular.ttf',
-            'B' => 'ScheherazadeNew-Bold.ttf',
+        'vazirmatn' => [
+            'R' => 'vazirmatn-regular.ttf',
+            'B' => 'vazirmatn-bold.ttf',
             'useKashida' => 75, // better justification for RTL text
         ],
     ],
-    'default_font' => 'scheherazade',
+    'default_font' => 'vazirmatn',
     'default_direction' => 'rtl',
 ]);
 
@@ -41,7 +41,7 @@ $mpdf->autoScriptToLang = true;
 $mpdf->debugfonts = false;
 
 // Example Farsi text
-$html = '<p style="font-family: scheherazade; font-size:18px;" lang="fa" dir="rtl">
+$html = '<p style="font-family: vazirmatn; font-size:18px;" lang="fa" dir="rtl">
 عباس پشت میز خود نشسته بود، جرعه‌ای چای می‌نوشید و در مخزن گیت‌هابی که به تازگی فورک کرده بود اسکرول می‌کرد. پروژه امیدوارکننده به نظر می‌رسید، اما چیزی درست نبود.
 
 او روی تب Issues کلیک کرد.
@@ -59,6 +59,6 @@ $mpdf->WriteHTML($html);
 // Output PDF
 $mpdf->Output('test.pdf', \Mpdf\Output\Destination::FILE);
 
-echo "PDF generated with Scheherazade font.\n";
+echo "PDF generated with vazirmatn font.\n";
 
 exit(0);
